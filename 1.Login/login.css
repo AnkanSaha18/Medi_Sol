@@ -1,0 +1,113 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+body{
+    background: rgb(241, 255, 248);
+}
+
+div{
+    /* border: 2px black solid; */
+}
+
+
+.container{
+    position: absolute;
+    max-width: 500px;
+    margin: auto;
+    top: 20%;
+    left: 5%; 
+    right: 5%;
+    /* transform: translate(-50%, -50%); */
+}
+
+
+.myRightCtn{
+    position: relative;
+    background-image: linear-gradient(45deg, rgb(186, 255, 237), rgb(0, 189, 189));
+    border-radius: 25px;
+    height: 100%;
+    padding: 50px;
+    color: brown;
+    font-size: 15px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+form{
+    /* max-width: fit-content; */
+    /* border: 2px solid black; */
+}
+
+.myLeftCtn{
+    /* border: 2px solid black; */
+    position: relative;
+    background: white;
+    border-radius: 25px;
+    height: 100%;
+    padding: 50px;
+    /* padding-left: 200px; */
+}
+
+.myLeftCtn div header{
+    color: rgb(0, 189, 189);
+    font-size: 30px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    padding-left: 50px ;
+}
+
+
+.row{
+    height: 100%;
+}
+
+.myCard{
+    position: relative;
+    background: white;
+    height: 100%;
+    border-radius: 25px;
+    box-shadow: 0px 10px 40px -10px rgba(0, 0, 0, 0.7);
+}
+
+
+.myInput{
+    height: 50px;
+    border-radius: 25px;
+    margin-bottom: 20px;
+    padding-left: 50px;
+    border: none;
+    box-shadow: 0px 10px 20px -10px rgba(0, 0, 0, 0.7);
+}
+
+.myInput:focus{
+    outline: none;
+    background-color: rgb(0, 189, 189);
+    color: white;
+}
+
+.myForm{
+    position: relative;
+    margin: 20px;
+}
+
+.butt{
+    width: 150px;
+    height: 50px;
+    border: none;
+    background-image: linear-gradient(0deg, rgb(0, 189, 189),rgb(186, 255, 237));
+    color: black;
+    font-weight: bold;
+    border-radius: 25px;
+    /* padding: 10px; */
+    margin-top: 20px;
+    box-shadow: 0px 10px 20px -10px rgba(0, 0, 0, 0.7);
+}
+
+.butt:hover{
+    background-image: linear-gradient(0deg, rgb(186, 255, 237), rgb(0, 189, 189));
+}
