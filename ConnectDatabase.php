@@ -1,4 +1,6 @@
 <?php
+session_start();
+
     $dbServername = "localhost";
     $dbUsername = "root";
     $dbPassword = "";
@@ -10,7 +12,7 @@
         echo "Failed to connect Database";
         echo $th->getMessage();
         //direct to Failed Page
-        include('../4.Error/Error.php');
+        include('Error.php');
     }
 
 
@@ -22,19 +24,21 @@
     $strt->bind_param("ssss", $username, $email, $phone, $password);
     try {
         $strt->execute();
-            ?>
-            <script>
-                alert("You have Signed UP successfully! Please Log in now");
+        ?>
+        <script>
+            alert("You have Signed UP successfully! Please Log in now");
+        </script>
+        <?pHP
+    } catch (Throwable $th) {
+        ?>
+        <script>
+            alert("Failed to register!!! Please try again");
             </script>
-            <?pHP
-        } catch (Throwable $th) {
-            ?>
-            <script>
-                alert("Failed to register!!! Please try again");
-                </script>
-            <?pHP
-        }
+        <?pHP
+    }
     include('Signup_Signin.php');
     $strt->close();
     $conn->close();
+    // header("Location: http://localhost/Project/Signup_Signin.php");
+    // exit();
 ?>

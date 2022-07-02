@@ -1,3 +1,16 @@
+<?php
+session_start();
+if(isset($_SESSION['loginTime']))
+{
+    if(time()-$_SESSION['loginTime']>10)
+    {
+        unset($_SESSION['username']);
+    }
+}
+?>
+
+
+
 <!doctype html>
 <html lang="en">
 
@@ -10,7 +23,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
         rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
         crossorigin="anonymous">
-    <link rel="stylesheet" href="Home.css">
+    <link rel="stylesheet" href="CSS/LandingPage.css">
     <!-- For Font Awesome -->
     <link rel="stylesheet" href="../FontAwesome/css/all.css">
 </head>
@@ -48,7 +61,15 @@
                     <li class="nav-item"><a href="#" class="nav-link" style="margin-left: 20px;">Contact</a></li>
                 </ul>
                 <ul class="navbar-nav mr-auto">
-                    <li class="navbar-item"><a href="#" class="nav-link" style="margin: 0px 50px;"><u>Login</u></a></li>
+                    <li class="navbar-item"><a href="Signup_Signin.php" class="nav-link" style="margin: 0px 50px;"><u>
+                        <!-- Login -->
+                        <?php
+                        if(isset($_SESSION['username']))
+                        echo $_SESSION['username'];
+                        else 
+                        echo "Login";
+                        ?>
+                    </u></a></li>
                 </ul>
             </div>
         </nav>
