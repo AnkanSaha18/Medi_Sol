@@ -6,6 +6,8 @@
     padding: 0px;
 }
 
+
+/* Navbar */
 .navbar {
     background-image: linear-gradient(90deg, blue, blue, rgb(0, 187, 255));
 }
@@ -19,8 +21,6 @@
 
 
 /* carousel test */
-
-
 .carousel {
     width: 100%;
     height: 90vh;
@@ -136,48 +136,55 @@ h2 {
     flex-flow: row wrap;
 }
 
-.footer-right >*{
+.footer-right>* {
     flex: 1 50%;
     margin-right: 1.25em;
 }
-.box a{
-    color: #999;
-}
-.features a{
+
+.box a {
     color: #999;
 }
 
-.box a:hover, .features a:hover{
+.features a {
+    color: #999;
+}
+
+.box a:hover,
+.features a:hover {
     color: white;
 }
-.footer-bottom{
+
+.footer-bottom {
     text-align: center;
     padding-top: 50px;
 }
-.footer-left p{
+
+.footer-left p {
     padding-right: 20%;
 }
 
-.socials a i{
+.socials a i {
     color: white;
     padding: 10px 12px;
     font-size: 25px;
 }
 
-@media screen and (min-width: 600px){
-    .footer-right> *{
+@media screen and (min-width: 600px) {
+    .footer-right>* {
         flex: 1;
     }
-    .footer-left{
+
+    .footer-left {
         flex: 1 0px;
     }
-    .footer-right{
+
+    .footer-right {
         flex: 2 0px;
     }
 }
 
 @media (max-width:600px) {
-    .footer{
+    .footer {
         padding: 15px;
     }
 }
