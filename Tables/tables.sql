@@ -8,3 +8,12 @@ CREATE TABLE Client(
     PRIMARY KEY(id)
 );
 INSERT into client(username, email, phone, password) VALUES('ankan', 'hekd@gmail.com', '++80 2938749', 'password');
+
+
+
+CREATE TABLE Division (
+    division_name varchar(50),
+    PRIMARY KEY(division_name)
+);
+INSERT INTO Division VALUES ('Dhaka');
+INSERT INTO District VALUES ('Narayangonj', 'Dhaka');

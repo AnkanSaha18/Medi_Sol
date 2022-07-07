@@ -1,0 +1,26 @@
+* {
+    font-size: small;
+    font-family: Georgia, serif;
+    margin: 0px;
+    padding: 0px;
+}
+
+
+.container-md{
+    margin: 50px;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.container-img img{
+    height: 300px;
+}
+.container-form{
+    width: 50%;
+    text-align: center;
+}
+
+
+

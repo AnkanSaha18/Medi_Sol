@@ -1,0 +1,93 @@
+*{
+    font-size: small;
+    font-family: Georgia, serif;
+    color: white;
+    margin: 0px;
+    padding: 0px;
+}
+
+body{
+    position: relative;
+}
+.button-section{
+    background-color: rgb(0, 140, 255);
+    border-radius: 5px;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.btn-primary{
+    background-color: transparent;
+    border-width: 0px;
+}
+.btn-primary:hover{
+    background-color: blue;
+}
+
+.circle{
+    background-image: linear-gradient(90deg,rgb(0, 140, 255), blue, blue, rgb(0, 140, 255));
+    width: 100%;
+    height: 60vh;
+
+    border-bottom-left-radius: 100%;
+    border-bottom-right-radius: 100%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+.circle img{
+    height: 100px;
+}
+.circle p{
+    font-weight: bold;
+    font-size: xx-large;
+}
+
+.offcanvas-header{
+    background-color: blue;
+    align-items: center;
+}
+
+
+.offcanvas-header div{
+    display: flex;
+    height: 100%;
+    align-items: center;
+}
+
+.offcanvas-header div img{
+    height: 30px;
+    margin-right: 10px;
+}
+
+
+
+
+.offcanvas-body{
+    background-color: rgb(213, 236, 255);
+}
+
+.offcanvas-body hr{
+    color: black;
+    font-size: large;
+    height: 2px;
+}
+
+.nav-section{
+    padding: 5px;
+}
+.nav-section li{
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.nav-section li a, .nav-section li i{
+    text-decoration: none;
+    color: black;
+}
+
+.nav-section li:hover{
+    background-color: rgb(117, 165, 255);
+}
