@@ -14,13 +14,45 @@
     align-items: center;
 }
 
+.container-img{
+    width: 40%;
+}
 .container-img img{
-    height: 300px;
+    max-height: 40%;
 }
 .container-form{
-    width: 50%;
+    width: 500px;
     text-align: center;
 }
 
+legend p{
+    color: black;
+    text-decoration: underline;
+    padding: 10px;
+    font-weight: bolder;
+    font-size: large;
+}
+
+form{
+    background-color:rgb(213, 236, 255);
+    border-radius: 10px;
+    padding: 50px;
+}
+
+.form-item input,.form-item select{
+    width: 60%;
+    border-radius: 25px;
+    padding: 10px;
+    margin: 10px;
+    border: none;
+    background-color: white;
+}
+.form-item input:focus{
+    outline-color: rgb(75, 147, 255);
+}
+.form-item label, .form-item i, .form-item input, .form-item select, .form-item select option{
+    color: black;
+    border: none;
+}
 
 
