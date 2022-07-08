@@ -1,0 +1,61 @@
+* {
+    font-size: small;
+    font-family: Georgia, serif;
+    /* color: white; */
+    margin: 0px;
+    padding: 0px;
+
+}
+
+div{
+    /* border: 1px solid red; */
+    min-width: 300px;
+}
+.row h1{
+    text-align: center;
+    text-decoration:underline;
+    padding: 20px;
+}
+
+.col{
+    text-align: center;
+}
+.card{
+    margin: auto;
+    border-radius: 20px;
+    border: 1px solid black;
+    border-bottom: 5px solid gray;
+    border-right: 5px solid gray;
+}
+.card img{
+    border-radius: 20px;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+}
+hr{
+    border: 2px solid black;
+}
+
+.card div{
+    padding: 20px;
+}
+.card div:first-child{
+    background-color: rgb(0, 98, 255);
+    border-top-left-radius: 20px;
+    border-top-right-radius: 15px;
+    color: white;
+    font-weight: bolder;
+
+}
+
+
+
+
+
+
+
+
+.cell{
+    /* background-color: palegreen; */
+    margin: 50px;
+}
