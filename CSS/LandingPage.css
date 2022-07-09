@@ -6,6 +6,10 @@
     padding: 0px;
 }
 
+body{
+    background-image: linear-gradient(0deg,rgb(204, 212, 228), white);
+}
+
 .navbar {
     background-image: linear-gradient(90deg, blue, blue, rgb(0, 187, 255));
 }
@@ -73,6 +77,132 @@
 .carousel-content:hover {
     background-color: rgba(0, 19, 115, 0.845);
 }
+
+
+
+
+
+/* main */
+
+
+.container *{
+    color: black;
+    text-align: center;
+}
+
+.section-header{
+    margin-top: 100px;
+    text-align: center;
+}
+.section-header hr{
+    border-radius: 50%;
+    border: 2px solid black;
+}
+.section-header h5{
+    color: rgb(255, 163, 72);
+    color: rgb(0, 0, 171);
+    font-size: larger;
+    font-weight: bolder;
+}
+
+.col{
+    /* border: 1px solid red; */
+}
+
+.service{
+    max-width: 275px;
+    background-image: linear-gradient(0deg,skyblue , rgb(227, 244, 255));
+    border-radius: 20px;
+    margin: auto;
+    margin-top: 20px;
+    padding: 40px;
+}
+.service img{
+    width: 175px;
+    height: 175px;
+    border-radius: 50%;
+    border: 2px solid skyblue;
+}
+
+
+.service-area{
+    padding: 20px;
+    border-radius: 15px;
+}
+.service-area:nth-child(1), .service-area:nth-child(3), .service-area:nth-child(6), .service-area:nth-child(8)
+{
+    background-color: rgb(188, 234, 255);
+}
+.service-area:nth-child(2),.service-area:nth-child(4), .service-area:nth-child(5), .service-area:nth-child(7)
+{
+    background-color: white;
+}
+
+.service-area img{
+    width: 200px;
+    height: 150px;
+    border-radius: 5px;
+}
+
+
+.step{
+    background-color: white;
+    max-width: 300px;
+    margin: 20px;
+    padding: 30px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.step img{
+    width: 200px;
+    height: 200px;
+}
+
+
+
+.care{
+    /* background-color: green; */
+    align-items: center;
+    margin-bottom: 50px;
+    min-width: 550px;
+}
+
+.care img{
+    width: 100%;
+    border-radius: 50px;
+
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.care-form{
+    background-color: white;
+    min-width: 530px;
+    padding: 50px;
+    margin: auto;
+    border-radius: 20px;
+    text-align: right;
+}
+
+.care-form label{
+    padding: 0px;
+}
+.care-form input, .care-form textarea{
+    min-width: 300px;
+    margin: 10px;
+    padding: 5px;
+    border: none;
+    text-align: left;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.care-form input:last-child{
+    background-color: rgb(203, 203, 203);
+    text-align: center;
+    margin-top: 50px;
+}
+
+
+
+
 
 
 
