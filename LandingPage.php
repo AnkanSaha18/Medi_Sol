@@ -7,6 +7,43 @@ if (isset($_SESSION['loginTime'])) {
         unset($_SESSION['username']);
     }
 }
+
+
+if(isset($_POST['name']) && isset($_POST['email']) && isset($_POST['subject']) && isset($_POST['message']))
+{
+    $name = $_POST['name'];
+    $from = "medisol060@gmail.com";
+    $to = $_POST['email'];
+    $subject = "Service Request: ".$_POST['subject'];
+    $body = $_POST['message'];
+    $headers = "From: ".$from;
+
+    
+    if (mail($from, $subject, $body, $headers)) {
+        // echo "Email successfully sent to $to ...";
+        echo '<script>alert("We have got Your response! Please wait for Confirmation email.")</script>';
+
+        $headers = "From: ".$to;
+        $subject = "Confirmation mail";
+        $body = "Hi $name,\nThank you for taking out the time to reach out to us in this regard, I'd be glad to help you out today. Our team will contact you soon.";
+
+        if(mail($to, $subject, $body, $headers))
+        {
+            // echo "Email Successfully send to client";
+            echo '<script>alert("Confiramation email has been send! Please check your inbox.")</script>';
+        }
+        else
+        {
+            // echo "Sorry to fail confirmation email";
+            echo '<script>alert("Sorry to fail sending the confirmation email")</script>';
+        }
+    } 
+    else {
+        // echo "Email sending failed...";
+        echo '<script>alert("Sorry, fail to receive your response. Please Enter a vaild email.")</script>';
+    }
+    $_POST = array(); //unsetting variable       
+}
 ?>
 
 
@@ -246,7 +283,7 @@ if (isset($_SESSION['loginTime'])) {
 
         <div class="row row-cols-3 justify-content-center">
             <div class="col section-header">
-                <h5>How it works</h5>
+                <h5>How to Use</h5>
                 <hr>
             </div>
         </div>
@@ -279,7 +316,7 @@ if (isset($_SESSION['loginTime'])) {
         </div>
         <div class="row row-cols-lg-2 row-cols-md-1 row-cols-sm-1 justify-content-center align-items-center" >
             <div class="col care justify-content-left">
-                <form class="care-form" action="#" method="Post">
+                <form class="care-form" action="LandingPage.php" method="Post">
                     <label for="name">Name:</label>
                     <input type="text" placeholder="Enter Your Name*" name="name" required><br>
                     <label for="email">Email:</label>
