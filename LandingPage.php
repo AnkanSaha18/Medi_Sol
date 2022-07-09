@@ -4,7 +4,7 @@ if (session_status() === PHP_SESSION_NONE) {
 }
 if(isset($_SESSION['loginTime']))
 {
-    if(time()-$_SESSION['loginTime']>10)
+    if(time()-$_SESSION['loginTime']>3600)
     {
         unset($_SESSION['username']);
     }
