@@ -1,14 +1,3 @@
-<!-- Some instrustion to use the Head Code( remember: not file)
-        1. Copy the Whole code, and Paste in required page
-        2. Create new .css file the style the new page
-        3. Three style steet for css(bootstrap, head, new page)
-        Remember: all the link are not attached here
--->
-
-
-
-
-
 <?php
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
@@ -18,6 +7,10 @@ if (isset($_SESSION['loginTime'])) {
         unset($_SESSION['username']);
     }
 }
+
+
+
+
 ?>
 
 
@@ -28,12 +21,12 @@ if (isset($_SESSION['loginTime'])) {
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Head</title>
+    <title>Services</title>
 
     <!-- For Bootstrap and CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <link rel="stylesheet" href="CSS/Head.css">
-    <link rel="stylesheet" href="CSS/newFileStyleSheet.css">
+    <link rel="stylesheet" href="CSS/Service.css">
     <!-- For Font Awesome -->
     <link rel="stylesheet" href="FontAwesome/css/all.css">
 
@@ -87,6 +80,83 @@ if (isset($_SESSION['loginTime'])) {
     <!-- Add your code from right here -->
 
 
+    <div class="header2">
+        <div class="container">
+            <div class="row row-cols-1">
+                <div class="col search">
+                    <div>
+                        <form action="Service.php" method="post">
+                            <input type="text" placeholder="   Search ..." name="search" required>
+                            <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="row row-cols-1">
+                <div class="col location">
+                    <div>
+                        <form action="Service.php" method="POST">
+                            <select name="division" id="division">
+                                <option value="select">Select Division</option>
+                                <option value="dhaka">Dhaka</option>
+                                <option value="chattogram">Chattogram</option>
+                                <option value="sylhet">Sylhet</option>
+                                <option value="barishal">Barishal</option>
+                                <option value="rajshahi">Rajshahi</option>
+                                <option value="khulna">Khulna</option>
+                                <option value="rangpur">Rangpur</option>
+                                <option value="mymensingh">Mymensingh </option>
+                            </select>
+                            <select name="district" id="district">
+                                <option value="Select">Select District/Area</option>
+                                <option value="Dhaka">Dhaka</option>
+                                <option value="Chittagonj">Chittagonj</option>
+                                <option value="Shylet">Shylet</option>
+                                <option value="Khulna">Khulna</option>
+                            </select>
+                            <button type="submit" name="location" name="location">Search</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <?php
+
+    if (isset($_POST['doctor'])) {
+        $_SESSION['type'] = 'doctor';
+    }
+    if (isset($_POST['hospital'])) {
+        $_SESSION['type'] = 'hospital';
+    }
+    if (isset($_POST['ambulance'])) {
+        $_SESSION['type'] = 'ambulance';
+    }
+    if (isset($_POST['pharmacy'])) {
+        $_SESSION['type'] = 'pharmacy';
+    }
+    if (isset($_POST['blood_bank'])) {
+        $_SESSION['type'] = 'blood_bank';
+    }
+    // echo $_SESSION['type']."<br>";
+
+    if (isset($_POST['search'])) {
+        $_SESSION['search'] = $_POST['search'];
+        // generate search result
+        echo $_SESSION['type'] . "  ";
+        echo $_SESSION['search'];
+    }
+
+    if (isset($_POST['location'])) {
+        $_SESSION['district'] = $_POST['district'];
+        $_SESSION['division'] = $_POST['division'];
+        echo $_SESSION['type'] . "  ";
+        echo $_SESSION['division'] . " ";
+        echo $_SESSION['district'];
+        // generate query according division and district basis
+    }
+    ?>
 
 
 

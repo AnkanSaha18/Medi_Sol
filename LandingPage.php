@@ -9,36 +9,31 @@ if (isset($_SESSION['loginTime'])) {
 }
 
 
-if(isset($_POST['name']) && isset($_POST['email']) && isset($_POST['subject']) && isset($_POST['message']))
-{
+if (isset($_POST['name']) && isset($_POST['email']) && isset($_POST['subject']) && isset($_POST['message'])) {
     $name = $_POST['name'];
     $from = "medisol060@gmail.com";
     $to = $_POST['email'];
-    $subject = "Service Request: ".$_POST['subject'];
+    $subject = "Service Request: " . $_POST['subject'];
     $body = $_POST['message'];
-    $headers = "From: ".$from;
+    $headers = "From: " . $from;
 
-    
+
     if (mail($from, $subject, $body, $headers)) {
         // echo "Email successfully sent to $to ...";
         echo '<script>alert("We have got Your response! Please wait for Confirmation email.")</script>';
 
-        $headers = "From: ".$to;
+        $headers = "From: " . $to;
         $subject = "Confirmation mail";
         $body = "Hi $name,\nThank you for taking out the time to reach out to us in this regard, I'd be glad to help you out today. Our team will contact you soon.";
 
-        if(mail($to, $subject, $body, $headers))
-        {
+        if (mail($to, $subject, $body, $headers)) {
             // echo "Email Successfully send to client";
             echo '<script>alert("Confiramation email has been send! Please check your inbox.")</script>';
-        }
-        else
-        {
+        } else {
             // echo "Sorry to fail confirmation email";
             echo '<script>alert("Sorry to fail sending the confirmation email")</script>';
         }
-    } 
-    else {
+    } else {
         // echo "Email sending failed...";
         echo '<script>alert("Sorry, fail to receive your response. Please Enter a vaild email.")</script>';
     }
@@ -80,13 +75,13 @@ if(isset($_POST['name']) && isset($_POST['email']) && isset($_POST['subject']) &
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Services
                         </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown" style="background-color: rgb(60, 138, 255); color: white;">
-                            <a class="dropdown-item" href="#">Doctor</a>
-                            <a class="dropdown-item" href="#">Hospital</a>
-                            <a class="dropdown-item" href="#">Ambulance</a>
-                            <a class="dropdown-item" href="#">Blood Bank</a>
-                            <a class="dropdown-item" href="#">Pharmacy</a>
-                        </div>
+                        <form action="Service.php" method="POST" class="dropdown-menu" aria-labelledby="navbarDropdown" style="background-color: rgb(60, 138, 255); color: white;">
+                            <a class="dropdown-item" href="#"><button type="submit" name="doctor">Doctor</button></a>
+                            <a class="dropdown-item" href="#"><button type="submit" name="hospital">Hospital</button></a>
+                            <a class="dropdown-item" href="#"><button type="submit" name="ambulance">Ambulance</button></a>
+                            <a class="dropdown-item" href="#"><button type="submit" name="blood_bank">Blood Bank</button></a>
+                            <a class="dropdown-item" href="#"><button type="submit" name="pharmacy">Pharmacy</button></a>
+                        </form>
                     </li>
                     <li class="nav-item"><a href="#" class="nav-link" style="margin-left: 20px;">About</a></li>
                     <li class="nav-item"><a href="#" class="nav-link" style="margin-left: 20px;">Contact</a></li>
@@ -188,38 +183,48 @@ if(isset($_POST['name']) && isset($_POST['email']) && isset($_POST['subject']) &
                 <hr>
             </div>
         </div>
-        <div class="row row-cols-lg-3 row-cols-md-2  row-cols-sm-1 justify-content-center">
-            <div class="col">
-                <div class="service">
-                    <img src="Image/doctor1.jpg" alt="doctor"><br><br>
-                    <h5>Doctor</h5>
+        <form class="row row-cols-lg-3 row-cols-md-2  row-cols-sm-1 justify-content-center" action="Service.php" method="POST">
+            <button name="doctor" class="service-button">
+                <div class="col">
+                    <div class="service">
+                        <img src="Image/doctor1.jpg" alt="doctor"><br><br>
+                        <h5>Doctor</h5>
+                    </div>
                 </div>
-            </div>
-            <div class="col">
-                <div class="service">
-                    <img src="Image/hospital1.jpg" alt="doctor"><br><br>
-                    <h5>Hospital</h5>
+            </button>
+            <button name="hospital" class="service-button">
+                <div class="col">
+                    <div class="service">
+                        <img src="Image/hospital1.jpg" alt="doctor"><br><br>
+                        <h5>Hospital</h5>
+                    </div>
                 </div>
-            </div>
-            <div class="col">
-                <div class="service">
-                    <img src="Image/ambulance1.png" alt="doctor"><br><br>
-                    <h5>Ambulance</h5>
+            </button>
+            <button name="ambulance" class="service-button">
+                <div class="col">
+                    <div class="service">
+                        <img src="Image/ambulance1.png" alt="doctor"><br><br>
+                        <h5>Ambulance</h5>
+                    </div>
                 </div>
-            </div>
-            <div class="col">
-                <div class="service">
-                    <img src="Image/pharmacy1.jpg" alt="doctor"><br><br>
-                    <h5>Pharmacy</h5>
+            </button>
+            <button name="pharmacy" class="service-button">
+                <div class="col">
+                    <div class="service">
+                        <img src="Image/pharmacy1.jpg" alt="doctor"><br><br>
+                        <h5>Pharmacy</h5>
+                    </div>
                 </div>
-            </div>
-            <div class="col">
-                <div class="service">
-                    <img src="Image/blood_bank1.webp" alt="doctor"><br><br>
-                    <h5>Blood Bank</h5>
+            </button>
+            <button name="blood_bank" class="service-button">
+                <div class="col">
+                    <div class="service">
+                        <img src="Image/blood_bank1.webp" alt="doctor"><br><br>
+                        <h5>Blood Bank</h5>
+                    </div>
                 </div>
-            </div>
-        </div>
+            </button>
+        </form>
 
 
         <div class="row row-cols-3 justify-content-center">
@@ -314,7 +319,7 @@ if(isset($_POST['name']) && isset($_POST['email']) && isset($_POST['subject']) &
                 <hr>
             </div>
         </div>
-        <div class="row row-cols-lg-2 row-cols-md-1 row-cols-sm-1 justify-content-center align-items-center" >
+        <div class="row row-cols-lg-2 row-cols-md-1 row-cols-sm-1 justify-content-center align-items-center">
             <div class="col care justify-content-left">
                 <form class="care-form" action="LandingPage.php" method="Post">
                     <label for="name">Name:</label>

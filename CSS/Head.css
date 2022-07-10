@@ -16,6 +16,12 @@
     color: whitesmoke;
 }
 
+.dropdown-item button {
+    background-color: transparent;
+    border: 0px solid black;
+    color: black;
+}
+
 
 
 

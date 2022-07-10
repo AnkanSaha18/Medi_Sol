@@ -49,7 +49,7 @@ $query1->bind_param("ss", $district, $division);
 try {
     $query1->execute();
 } catch (Throwable $th) {
-    $error = $error + 1;
+    // $error = $error + 1;
     // echo "Area already inserted";
 }
 
@@ -61,7 +61,7 @@ try {
     // header("Location: http://localhost/Project/Admin.php");
     // exit();
 } catch (Throwable $th) {
-    $error = $error + 1;
+    $error = 2;
     // echo "Failed to add new Service";
 }
 
@@ -126,14 +126,14 @@ $conn->close();
                         <i class="fa-solid fa-city"></i>
                         <select name="division" id="division" required>
                             <option class="dropdown-menu" value="Service_Division">--Select Division--</option>
-                            <option value="Dhaka">Dhaka</option>
-                            <option value="Chittagong">Chittagong</option>
-                            <option value="Sylhet">Sylhet</option>
-                            <option value="Barisal">Barisal</option>
-                            <option value="Rajshahi">Rajshahi</option>
-                            <option value="Khulna">Khulna</option>
-                            <option value="Mymensingh">Mymensingh</option>
-                            <option value="Rangpur">Rangpur</option>
+                            <option value="dhaka">Dhaka</option>
+                            <option value="chittagong">Chittagong</option>
+                            <option value="sylhet">Sylhet</option>
+                            <option value="barisal">Barisal</option>
+                            <option value="rajshahi">Rajshahi</option>
+                            <option value="khulna">Khulna</option>
+                            <option value="mymensingh">Mymensingh</option>
+                            <option value="rangpur">Rangpur</option>
                         </select>
                     </div>
 
