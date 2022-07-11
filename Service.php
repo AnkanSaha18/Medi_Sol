@@ -96,8 +96,8 @@ if (isset($_SESSION['loginTime'])) {
                 <div class="col location">
                     <div>
                         <form action="Service.php" method="POST">
-                            <select name="division" id="division">
-                                <option value="select">Select Division</option>
+                            <select name="district_division" id="division">
+                                <option value="select">Select District/Area, Division</option>
                                 <option value="dhaka">Dhaka</option>
                                 <option value="chattogram">Chattogram</option>
                                 <option value="sylhet">Sylhet</option>
@@ -106,13 +106,21 @@ if (isset($_SESSION['loginTime'])) {
                                 <option value="khulna">Khulna</option>
                                 <option value="rangpur">Rangpur</option>
                                 <option value="mymensingh">Mymensingh </option>
-                            </select>
-                            <select name="district" id="district">
-                                <option value="Select">Select District/Area</option>
-                                <option value="Dhaka">Dhaka</option>
-                                <option value="Chittagonj">Chittagonj</option>
-                                <option value="Shylet">Shylet</option>
-                                <option value="Khulna">Khulna</option>
+
+                                <?php
+                                $conn = mysqli_connect("localhost", "root", "", "medi_sol") or die("connection failed");
+
+                                $sql = "select * from district ORDER BY division_name, district_name";
+
+                                $query = mysqli_query($conn, $sql) or die("Query Unsuccessful.");
+
+                                $str = "";
+                                while ($row = mysqli_fetch_assoc($query)) {
+                                    $temp = $row['district_name'] . ", " . $row['division_name'];
+                                    $str .= "<option value='{$temp}'>{$temp}</option>";
+                                }
+                                echo $str;
+                                ?>
                             </select>
                             <button type="submit" name="location" name="location">Search</button>
                         </form>
@@ -141,22 +149,102 @@ if (isset($_SESSION['loginTime'])) {
     }
     // echo $_SESSION['type']."<br>";
 
+
+    // database connection
+    $conn = mysqli_connect("localhost", "root", "", "medi_sol") or die("connection failed");
+
+    $sql = "SELECT * FROM services WHERE id=1;";
+
     if (isset($_POST['search'])) {
         $_SESSION['search'] = $_POST['search'];
         // generate search result
-        echo $_SESSION['type'] . "  ";
-        echo $_SESSION['search'];
+        // echo $_SESSION['type'] . "  ";
+        // echo $_SESSION['search'];
+        $sql = "SELECT * FROM services WHERE name LIKE '%" . $_SESSION['search'] . "%' OR phone LIKE '%" . $_SESSION['search'] . "%'OR email like '%" . $_SESSION['search'] . "%' OR type LIKE '%" . $_SESSION['search'] . "%' OR district_name LIKE '%" . $_SESSION['search'] . "%' OR division_name LIKE '%" . $_SESSION['search'] . "%';";
+        // echo $sql;
     }
 
     if (isset($_POST['location'])) {
-        $_SESSION['district'] = $_POST['district'];
-        $_SESSION['division'] = $_POST['division'];
-        echo $_SESSION['type'] . "  ";
-        echo $_SESSION['division'] . " ";
-        echo $_SESSION['district'];
-        // generate query according division and district basis
+        // echo $_SESSION['type'] . "  ";
+
+        $district_division = explode(", ", $_POST['district_division']);
+        if (!isset($district_division[1])) {
+            $_SESSION['division_name'] = $district_division[0];
+            // echo "district not found ";
+            // echo $_SESSION['division_name'];
+
+            $sql = "SELECT * FROM services WHERE division_name='" . $_SESSION['division_name'] . "' AND type='" . $_SESSION['type'] . "';";
+            // echo $sql;
+        } else {
+            $_SESSION['district_name'] = $district_division[0];
+            $_SESSION['division_name'] = $district_division[1];
+            // echo $_SESSION['district_name'];
+            // echo $_SESSION['division_name'];
+            $sql = "SELECT * FROM services WHERE district_name='" . $_SESSION['district_name'] . "' AND division_name='" . $_SESSION['division_name'] . "' AND type='" . $_SESSION['type'] . "';";
+            // echo $sql;
+            //separate query
+        }
     }
+    // echo "<br>1.   " . $sql . "<br>";
+    $query = mysqli_query($conn, $sql) or die("Query Unsuccessful.");
+
+    // while ($row = mysqli_fetch_assoc($query)) {
+    //     echo $row['id'] . "<br>";
+    // }
     ?>
+
+    <!-- add all service now, which is got from database -->
+
+
+    <div class="container">
+        <div class="row row-cols-sm-1 row-cols-md-2 row-cols-lg-3 justify-content-center">
+            <?php while ($row = mysqli_fetch_assoc($query)) { ?>
+                <div class="col cell">
+                    <div class="card" style="width: 18rem;">
+                        <div><?php echo $row['type']; ?></div>
+                        <?php
+                        if ($row['type'] == 'Doctor')
+                            echo "<img src='Image/doctor.jpg' class='card-img-top' alt='doctor pic'>";
+                        else if ($row['type'] == 'Pharmacy')
+                            echo "<img src='Image/pharmacy.jpg' class='card-img-top' alt='pharmacy pic'>";
+                        else if ($row['type'] == 'Hospital')
+                            echo "<img src='Image/hospital.jpg' class='card-img-top' alt='hospital pic'>";
+                        else if ($row['type'] == 'Ambulance')
+                            echo "<img src='Image/ambulance.jpg' class='card-img-top' alt='ambulance pic'>";
+                        else if ($row['type'] == 'Blood_Bank')
+                            echo "<img src='Image/blood_bank.jpg' class='card-img-top' alt='blood bank pic'>";
+
+                        ?>
+                        <!-- <img src='Image/' class="card-img-top" alt="doctor pic"> -->
+                        <div class="card-body">
+                            <h5 class="card-title"><?php echo $row['name']; ?></h5>
+                            <p><i class="fa-solid fa-location-dot"></i><?php echo $row['division_name']; ?></p>
+                            <hr>
+                            <p>34/46 No. AC Dhor Road, kalibazer, Narayangonj, Dhaka</p>
+                            <h5><i class="fa-solid fa-phone"></i> <?php echo $row['phone']; ?></h5>
+                            <h5><i class="fa-solid fa-envelope"></i> <?php echo $row['email']; ?></h5>
+                            <br>
+                            <a href="<?php echo $row['location']; ?>" target="_" class="btn btn-primary"><i class="fa-solid fa-map-location-dot"></i> Location</a>
+                            <?php
+                            // Link need to updated letter
+                            if ($row['type'] == 'Doctor')
+                                echo "<a href='#' class='btn btn-primary'>Appoinment</a>";
+                            else if ($row['type'] == 'Pharmacy')
+                                echo "<a href='#' class='btn btn-primary'>Order</a>";
+                            else if ($row['type'] == 'Hospital')
+                                echo "<a href='#' class='btn btn-primary'>Book</a>";
+                            else if ($row['type'] == 'Ambulance')
+                                echo "<a href='#' class='btn btn-primary'>Book</a>";
+                            else if ($row['type'] == 'Blood_Bank')
+                                echo "<a href='#' class='btn btn-primary'>Show</a>";
+                            ?>
+
+                        </div>
+                    </div>
+                </div>
+            <?php } ?>
+        </div>
+    </div>
 
 
 
@@ -170,6 +258,8 @@ if (isset($_SESSION['loginTime'])) {
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+
 </body>
 
 </html>

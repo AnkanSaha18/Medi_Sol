@@ -9,15 +9,13 @@
 
 div{
     /* border: 1px solid red; */
-    min-width: 300px;
-}
-.row h1{
-    text-align: center;
-    text-decoration:underline;
-    padding: 20px;
+    /* min-width: 300px; */
 }
 
-.col{
+.cell{
+    /* background-color: palegreen; */
+    width: fit-content;
+    margin: 10px;
     text-align: center;
 }
 .card{
@@ -32,7 +30,7 @@ div{
     border-top-left-radius: 0px;
     border-top-right-radius: 0px;
 }
-hr{
+.card-body hr{
     border: 2px solid black;
 }
 
@@ -46,16 +44,4 @@ hr{
     color: white;
     font-weight: bolder;
 
-}
-
-
-
-
-
-
-
-
-.cell{
-    /* background-color: palegreen; */
-    margin: 50px;
 }
