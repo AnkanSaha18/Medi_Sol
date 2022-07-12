@@ -18,6 +18,30 @@ if (isset($_SESSION['loginTime'])) {
         unset($_SESSION['username']);
     }
 }
+
+
+include('Connection.php');
+$sql = "SELECT * FROM services WHERE type='Doctor'";
+$query = mysqli_query($conn, $sql) or die("Query Unsuccessful.");
+while ($row = mysqli_fetch_assoc($query)) {
+    if (isset($_POST[$row['id']])) {
+        // echo "We got";
+        $_SESSION['doctorid'] = $row['id'];
+        break;
+    }
+}
+
+// echo "Doctor id is " . $_SESSION['doctorid'];
+
+$sql = "SELECT * FROM services WHERE id = '{$_SESSION['doctorid']}';";
+$query = mysqli_query($conn, $sql) or die("Query Unsuccessful.");
+if($row = mysqli_fetch_assoc($query))
+{
+    $_SESSION['doctorname']=$row['name'];
+}
+// echo "Doctor name is " . $_SESSION['doctorname'];
+
+
 ?>
 
 
@@ -28,12 +52,12 @@ if (isset($_SESSION['loginTime'])) {
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Head</title>
+    <title>Doctor Appointment</title>
 
     <!-- For Bootstrap and CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <link rel="stylesheet" href="CSS/Head.css">
-    <link rel="stylesheet" href="CSS/newFileStyleSheet.css">
+    <link rel="stylesheet" href="CSS/Appointment.css">
     <!-- For Font Awesome -->
     <link rel="stylesheet" href="FontAwesome/css/all.css">
 
@@ -87,9 +111,57 @@ if (isset($_SESSION['loginTime'])) {
     <!-- Add your code from right here -->
 
 
+    <div class="container main">
+        <u>
+            <h1 style="text-align: center;">Doctor Appointment Form</h1>
+        </u>
+
+        <!-- <form action="#" method="POST"> -->
+        <form action="AppointmentEmail.php" method="POST">
+
+            <div class="container-sm">
+                <div class="row row-cols-md-2 row-cols-sm-1 justify-content-center">
+                    <div class="col patient">
+                        <label for="patient_name">PATIENT:</label><br>
+                        <input type="text" name="patient_name" placeholder="Patient Name" required>
+                    </div>
+                    <div class="col patient">
+                        <label for="patient_contact">Contact Number:</label><br>
+                        <input type="number" name="patient_contact" placeholder="+880 xxxxxxxxxx" required>
+                    </div>
+                </div>
+            </div>
 
 
 
+
+            <!-- Need to fetch data from database -->
+            <h3 style="margin-top: 100px;">Doctor:   <?php echo $_SESSION['doctorname'];?></h3>
+            <div class="container-sm">
+                <div class="row row-cols-md-2 row-cols-sm-1 justify-content-center">
+                    <div class="col data-time">
+                        <label for="appointment_date">Appointment Data: </label><br>
+                        <input type="date" name="appointment_date" required>
+                    </div>
+                    <div class="col data-time">
+                        <label for="appointment_time">Available Time:</label><br>
+                        <input type="time" name="appointment_time" required>
+                    </div>
+                </div>
+            </div>
+
+            <br><br>
+            <h4>Symptoms:</h4>
+            <input type="text" class="symptoms" name="symptoms" required>
+
+
+            <h4>Purpose of Appoinment</h4>
+            <textarea class="purpose" name="purpose" cols="30" rows="3" placeholder="Describe your problems..." required></textarea>
+
+
+            <button type="submit" class="btn confirm">Confirm Appointment</button>
+        </form>
+    </div>
 
 
 

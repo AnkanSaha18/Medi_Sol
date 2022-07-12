@@ -60,7 +60,8 @@ if (isset($_SESSION['loginTime'])) {
                         </form>
                     </li>
                     <li class="nav-item"><a href="#" class="nav-link" style="margin-left: 20px;">About</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link" style="margin-left: 20px;">Contact</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link" style="margin-left: 20px;">Articles
+                </a></li>
                 </ul>
                 <ul class="navbar-nav mr-auto">
                     <li class="navbar-item"><a href="Signup_Signin.php" class="nav-link" style="margin: 0px 50px;"><u>
@@ -225,19 +226,23 @@ if (isset($_SESSION['loginTime'])) {
                             <h5><i class="fa-solid fa-envelope"></i> <?php echo $row['email']; ?></h5>
                             <br>
                             <a href="<?php echo $row['location']; ?>" target="_" class="btn btn-primary"><i class="fa-solid fa-map-location-dot"></i> Location</a>
+                            
+                            
+
                             <?php
                             // Link need to updated letter
                             if ($row['type'] == 'Doctor')
-                                echo "<a href='#' class='btn btn-primary'>Appoinment</a>";
+                            echo "<form action='Appointment.php' method='post'><button class='btn btn-primary' name='{$row['id']}'>Doctor Appoinment</button></form>";
                             else if ($row['type'] == 'Pharmacy')
-                                echo "<a href='#' class='btn btn-primary'>Order</a>";
+                            echo "<a href='#' class='btn btn-primary'>Order</a>";
                             else if ($row['type'] == 'Hospital')
-                                echo "<a href='#' class='btn btn-primary'>Book</a>";
+                            echo "<a href='#' class='btn btn-primary'>Book</a>";
                             else if ($row['type'] == 'Ambulance')
-                                echo "<a href='#' class='btn btn-primary'>Book</a>";
+                            echo "<a href='#' class='btn btn-primary'>Book</a>";
                             else if ($row['type'] == 'Blood_Bank')
-                                echo "<a href='#' class='btn btn-primary'>Show</a>";
+                            echo "<a href='#' class='btn btn-primary'>Show</a>";
                             ?>
+                            
 
                         </div>
                     </div>

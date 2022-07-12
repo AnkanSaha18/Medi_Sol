@@ -70,7 +70,7 @@ if (isset($_POST['name']) && isset($_POST['email']) && isset($_POST['subject']) 
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav m-auto">
-                    <li class="nav-item"><a href="#" class="nav-link" style="margin-left: 20px;">Home</a></li>
+                    <li class="nav-item"><a href="LandingPage.php" class="nav-link" style="margin-left: 20px;">Home</a></li>
                     <li class="nav-item dropdown" style="margin-left: 20px;">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Services
@@ -84,7 +84,8 @@ if (isset($_POST['name']) && isset($_POST['email']) && isset($_POST['subject']) 
                         </form>
                     </li>
                     <li class="nav-item"><a href="#" class="nav-link" style="margin-left: 20px;">About</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link" style="margin-left: 20px;">Contact</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link" style="margin-left: 20px;">Articals</a></li>
+
                 </ul>
                 <ul class="navbar-nav mr-auto">
                     <li class="navbar-item"><a href="Signup_Signin.php" class="nav-link" style="margin: 0px 50px;"><u>

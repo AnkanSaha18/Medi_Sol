@@ -140,8 +140,10 @@
     border: 2px solid black;
 }
 
-.card-body a, .card-body a i{
+.card-body a, .card-body a i, .card-body form button{
     color: white;
+    margin: 5px;
+
 }
 
 .card div {
