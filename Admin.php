@@ -80,6 +80,11 @@ if (isset($error)) {
                     <li><a href="http://localhost/phpmyadmin/index.php?route=/sql&server=1&db=medi_sol&table=client&pos=0"><i class="fa-solid fa-check"></i> Check client</a></li>
                     <li><a href="http://localhost/project/Signup_Signin.php"><i class="fa-solid fa-plus"></i> Add client</a></li>
                 </div>
+                <hr>
+                <div class="nav-section">
+                    <li><a href="http://localhost/phpmyadmin/index.php?route=/sql&server=1&db=medi_sol&table=articles&pos=0"><i class="fa-solid fa-pen-to-square"></i> Edit Post</a></li>
+                    <li><a href="http://localhost/project/AdminAddArticle.php"><i class="fa-solid fa-calendar-plus"></i> Create Post</a></li>
+                </div>
             </ul>
 
 

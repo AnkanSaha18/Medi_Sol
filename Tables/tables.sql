@@ -39,3 +39,13 @@ CREATE TABLE Services(
     FOREIGN KEY(district_name, division_name) REFERENCES District (district_name, division_name) ON DELETE CASCADE
 );
 INSERT INTO Services(name, phone, email, type, location, district_name, division_name) VALUES ('Dr. Osim', '013325', 'example1@gmai.com', 'Doctor', 'google map loction', 'Taligati', 'Khulna');
+
+
+CREATE TABLE `medi_sol`.`articles` (
+    `id` INT NOT NULL AUTO_INCREMENT ,
+    `title` VARCHAR(200) NOT NULL ,
+    `description` VARCHAR(1000) NOT NULL ,
+    `image_url` TEXT NOT NULL ,
+    PRIMARY KEY (`id`)
+);
+INSERT INTO articles(title, description, image_url) values ( 'new Article', 'abcd', 'IMG-62ceae0c9a6d70.87587964.jpg')
