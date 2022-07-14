@@ -10,6 +10,7 @@ if (isset($_SESSION['loginTime'])) {
 
 include('Connection.php');
 $sql = "SELECT * FROM articles;";
+$sql = "SELECT * FROM articles order by id DESC";
 $query = mysqli_query($conn, $sql) or die("Query Unsuccessful.");
 
 
@@ -67,7 +68,7 @@ $query = mysqli_query($conn, $sql) or die("Query Unsuccessful.");
                         </form>
                     </li>
                     <li class="nav-item"><a href="#" class="nav-link" style="margin-left: 20px;">About</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link" style="margin-left: 20px;">Articles</a></li>
+                    <li class="nav-item"><a href="Articles.php" class="nav-link" style="margin-left: 20px;">Articles</a></li>
                 </ul>
                 <ul class="navbar-nav mr-auto">
                     <li class="navbar-item"><a href="Signup_Signin.php" class="nav-link" style="margin: 0px 50px;"><u>
@@ -105,14 +106,15 @@ $query = mysqli_query($conn, $sql) or die("Query Unsuccessful.");
                     ?>
                     <img src="<?php echo $str; ?>" alt="ArticleImage">
                     <p>July 14, 2022</p>
-                    <div>
-                        <button onclick="openPopup(this.id)" id="<?php echo $row['id'] ?>"> <?php echo $row['title'] ?> </button>
+                    <div >
+                        <button class="article-button" onclick="openPopup(this.id)" id="<?php echo $row['id'] ?>"> <?php echo $row['title'] ?> </button>
                     </div>
 
 
                     <div class="popup" id="<?php echo "pop".$row['id'] ?>">
                         <img src="Image/logo2.png" alt="logo">
                         <h2><?php echo $row['title'] ?></h2>
+                        <hr>
                         <p><?php echo $row['description'] ?></p>
                         <button type="button" onclick="closePopup()">BACK</button>
                     </div>

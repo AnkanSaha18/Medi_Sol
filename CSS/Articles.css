@@ -23,11 +23,6 @@ div
 
 .article{
     min-width: 200px;
-    justify-content: space-around;
-    justify-content: center;
-    justify-content: space-evenly;
-    justify-content: space-between;
-
 }
 
 .article img{
@@ -37,22 +32,24 @@ div
     font-size: 15px;
 }
 
-.article div button{
+.article-button{
     font-weight: 900;
     background-color: white;
     border: 0px;
     text-align: left;
 }
 
-.article div button:hover{
+.article-button:hover{
     text-decoration: underline;
-    font-size: 20px;
+    color: rgb(76, 76, 76);
+    transition: 0.5s;
 }
 
 
+
 .popup{
-    width: 50%;
-    background-color: skyblue;
+    width: 80%;
+    background-color: rgb(210, 210, 255);
     border-radius: 6px;
     /* position: absolute; */
     position: fixed;
@@ -65,6 +62,7 @@ div
     color: #333;
     visibility: hidden;   /*Need to be modify when button is clicked*/
     transition: thransform 0.4s, top 2s;
+    box-shadow: 0 40px 800px 0 rgba(0, 0, 0, 1), 0 60px 200px 0 rgba(0, 0, 0, 1);
 }
 
 .open-popup{
@@ -79,7 +77,7 @@ div
     width: 100px;
     margin-top: -40px;
     border-radius: 50%;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.7);
 }
 
 .popup h2{
@@ -92,10 +90,12 @@ div
     width: 100%;
     margin-top: 50px;
     padding: 10px;
-    /* background-color: red; */
+    background-color: blue;
+    color: white;
     border: 0;
     outline: none;
-    font-size: 18px;
+    font-size: 20px;
+    font-weight: bolder;
     border-radius: 4px;
     cursor: pointer;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);       

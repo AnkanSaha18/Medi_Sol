@@ -84,7 +84,7 @@ if (isset($_POST['name']) && isset($_POST['email']) && isset($_POST['subject']) 
                         </form>
                     </li>
                     <li class="nav-item"><a href="#" class="nav-link" style="margin-left: 20px;">About</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link" style="margin-left: 20px;">Articals</a></li>
+                    <li class="nav-item"><a href="Articles.php" class="nav-link" style="margin-left: 20px;">Articals</a></li>
 
                 </ul>
                 <ul class="navbar-nav mr-auto">

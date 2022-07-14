@@ -60,7 +60,7 @@ if (isset($_SESSION['loginTime'])) {
                         </form>
                     </li>
                     <li class="nav-item"><a href="#" class="nav-link" style="margin-left: 20px;">About</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link" style="margin-left: 20px;">Articles
+                    <li class="nav-item"><a href="Articles.php" class="nav-link" style="margin-left: 20px;">Articles
                 </a></li>
                 </ul>
                 <ul class="navbar-nav mr-auto">

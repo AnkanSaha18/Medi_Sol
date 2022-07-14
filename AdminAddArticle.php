@@ -54,10 +54,15 @@ if (isset($_POST['articleButton']) && isset($_POST['articleTitle']) && isset($_F
 
                 include('Connection.php');
 
-                // Insert into database
-                $sql = "INSERT INTO articles(title, description, image_url) values ( '{$_POST['articleTitle']}', '{$_POST['articleDetails']}', '$new_img_name')";
-                // echo "<br><br>" . $sql . "<br><br>";
-                mysqli_query($conn, $sql);
+                $query = $conn->prepare("INSERT INTO articles(title, description, image_url) values (?, ?, ?);");
+                $query->bind_param("sss", $_POST['articleTitle'], $_POST['articleDetails'], $new_img_name);
+                try {
+                    $query->execute();
+                } catch (Throwable $th) {
+
+                }
+
+
                 unset($_POST);
                 unset($_FILES);
                 $_SESSION['articlePost']=1;
