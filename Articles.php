@@ -106,11 +106,11 @@ $query = mysqli_query($conn, $sql) or die("Query Unsuccessful.");
                     <img src="<?php echo $str; ?>" alt="ArticleImage">
                     <p>July 14, 2022</p>
                     <div>
-                        <button onclick="openPopup(this.id)" id=" <?php echo $row['id'] ?> "> <?php echo $row['title'] ?> </button>
-
+                        <button onclick="openPopup(this.id)" id="<?php echo $row['id'] ?>"> <?php echo $row['title'] ?> </button>
                     </div>
 
-                    <div class="popup" id="<?php echo $row['id'] ?>">
+
+                    <div class="popup" id="<?php echo "pop".$row['id'] ?>">
                         <img src="Image/logo2.png" alt="logo">
                         <h2><?php echo $row['title'] ?></h2>
                         <p><?php echo $row['description'] ?></p>
@@ -118,47 +118,23 @@ $query = mysqli_query($conn, $sql) or die("Query Unsuccessful.");
                     </div>
                 </div>
             <?php } ?>
-
-
-
-
-
-            <div class="col article">
-                <img src="Image/care.jpg" alt="ArticleImage">
-                <p>July 14, 2022</p>
-                <div>
-                    <!-- <button onclick="openPopup()"><a href="http://localhost/project/Articles.php?id=3"> Title2</a></button> -->
-                    <!-- <button onclick="openPopup()" name="extra"> Title2</button> -->
-                    <form action="Articles.php" method="post"><button onclick="openPopup()" name="extra"> Title2</button></form>
-                </div>
-
-                <div class="popup" id="popup">
-                    <img src="Image/logo2.png" alt="logo">
-                    <h2>Title of Article 2</h2>
-                    <p>Description 2</p>
-                    <button type="button" onclick="closePopup()">BACK</button>
-                </div>
-            </div>
-
-
-
         </div>
     </div>
 
-    <?php
-    $str = "7";
-    ?>
+
     <script>
         let popup = document.getElementById("<?php echo $str ?>");
 
 
         function openPopup(clickedid) {
-            alert(popup);
-            // popup = document.getElementById(clickedid);
-            alert(popup);
+            // alert(popup);
+            // alert(clickedid);
+            let str= "pop";
+            str = str+clickedid;
+            popup = document.getElementById(str);
+            // alert(popup);
             popup.classList.add("open-popup");
             // alert(popup);
-            alert(clickedid);
         }
 
         function closePopup() {
