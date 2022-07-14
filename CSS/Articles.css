@@ -1,0 +1,102 @@
+div
+{
+    /* border: 1px solid red; */
+}
+
+.container *{
+    color: black;
+}
+
+.header2{
+    height: 70vh;
+    width: 100%;
+    background-color: rgb(0, 0, 143);
+    display: flex;
+    flex-direction: column-reverse;
+}
+.header2 div{
+    display: inline-block;
+    margin: 50px;
+    font-size: 1in;
+}
+
+
+.article{
+    min-width: 200px;
+    justify-content: space-around;
+    justify-content: center;
+    justify-content: space-evenly;
+    justify-content: space-between;
+
+}
+
+.article img{
+    width: 100%;
+}
+.article p{
+    font-size: 15px;
+}
+
+.article div button{
+    font-weight: 900;
+    background-color: white;
+    border: 0px;
+    text-align: left;
+}
+
+.article div button:hover{
+    text-decoration: underline;
+    font-size: 20px;
+}
+
+
+.popup{
+    width: 50%;
+    background-color: skyblue;
+    border-radius: 6px;
+    /* position: absolute; */
+    position: fixed;
+    top: 50%;
+    top: 0;  /*Need to be modify when button is clicked*/
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.1);    /*Need to be modify when button is clicked*/ 
+    text-align: center;
+    padding: 0 30px 30px;
+    color: #333;
+    visibility: hidden;   /*Need to be modify when button is clicked*/
+    transition: thransform 0.4s, top 2s;
+}
+
+.open-popup{
+    visibility: visible;
+    top: 50%;
+    transform: translate(-50%, -50%) scale(1);
+
+}
+
+
+.popup img{
+    width: 100px;
+    margin-top: -40px;
+    border-radius: 50%;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.popup h2{
+    font-size: 38px;
+    font-weight: 500;
+    margin: 30px 0 10px;
+}
+
+.popup button{
+    width: 100%;
+    margin-top: 50px;
+    padding: 10px;
+    /* background-color: red; */
+    border: 0;
+    outline: none;
+    font-size: 18px;
+    border-radius: 4px;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);       
+}

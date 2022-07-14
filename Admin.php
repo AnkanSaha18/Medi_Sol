@@ -1,4 +1,10 @@
 <?php
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+
+
+
 if (isset($error)) {
     // echo "<br><br><br>" . $error;
     if ($error > 0) {
@@ -17,6 +23,18 @@ if (isset($error)) {
 }
 
 
+?>
+
+
+<?php
+if (isset($_SESSION['articlePost'])) {
+    unset($_SESSION['articlePost']);
+?>
+    <script>
+        alert("Your Article has been posted successfully.");
+    </script>
+<?php
+}
 ?>
 
 

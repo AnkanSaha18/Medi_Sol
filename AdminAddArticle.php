@@ -1,4 +1,7 @@
 <?php
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
 // include('Connection.php');
 
 // echo "<br><br>";
@@ -16,7 +19,7 @@
 // }
 
 
-if (isset($_POST['articleTitle']) && isset($_FILES['articleImage']) && isset($_POST['articleDetails'])) {
+if (isset($_POST['articleButton']) && isset($_POST['articleTitle']) && isset($_FILES['articleImage']) && isset($_POST['articleDetails'])) {
     $img_name = $_FILES['articleImage']['name'];
     $img_size = $_FILES['articleImage']['size'];
     $tmp_name =   $_FILES['articleImage']['tmp_name'];
@@ -55,6 +58,11 @@ if (isset($_POST['articleTitle']) && isset($_FILES['articleImage']) && isset($_P
                 $sql = "INSERT INTO articles(title, description, image_url) values ( '{$_POST['articleTitle']}', '{$_POST['articleDetails']}', '$new_img_name')";
                 // echo "<br><br>" . $sql . "<br><br>";
                 mysqli_query($conn, $sql);
+                unset($_POST);
+                unset($_FILES);
+                $_SESSION['articlePost']=1;
+                header("Location: Admin.php");
+                exit();
             ?>
                 <script>
                     alert("Your Article has been posted successfully.");
@@ -136,7 +144,7 @@ if (isset($_POST['articleTitle']) && isset($_FILES['articleImage']) && isset($_P
                         </div>
 
                         <div class="form-item">
-                            <input type="submit" value="Create Post">
+                            <input type="submit" name="articleButton" value="Create Post">
                         </div>
 
                     </fieldset>
