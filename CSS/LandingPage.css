@@ -248,6 +248,11 @@ footer {
     margin-bottom: 2em;
 }
 
+.payment a img{
+    height: 200px;
+    width: 300px;
+}
+
 .footer-right {
     width: 50%;
 }

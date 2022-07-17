@@ -386,8 +386,9 @@ if (isset($_POST['name']) && isset($_POST['email']) && isset($_POST['subject']) 
                 <a href="#"><i class="fa-brands fa-youtube"></i></a>
                 <a href="#"><i class="fa-brands fa-tumblr"></i></a>
                 <a href="#"><i class="fa-brands fa-instagram"></i></a>
-
-
+            </div>
+            <div class="payment">
+                <a href="Payment.php"><img src="Image/paymentSSL.png" alt="payment logo"></a>
             </div>
         </div>
 
