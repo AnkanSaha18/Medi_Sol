@@ -127,7 +127,7 @@ if (isset($_POST['name']) && isset($_POST['email']) && isset($_POST['subject']) 
                     <div class="carousel-item-item background1">
                         <div class="carousel-content">
                             <h4>Looking For Doctor?</h4>
-                            <i>Lorem ipsum dolor sit, amet consectetur adipisicing.</i>
+                            <i>Your will get the best doctor location at out site.</i>
                         </div>
                     </div>
                 </div>
@@ -135,7 +135,7 @@ if (isset($_POST['name']) && isset($_POST['email']) && isset($_POST['subject']) 
                     <div class="carousel-item-item background2">
                         <div class="carousel-content">
                             <h4>Where is the Ambulance?</h4>
-                            <i>Lorem ipsum dolor sit amet.</i>
+                            <i>Search and Find Ambulance near at your location.</i>
                         </div>
                     </div>
                 </div>
@@ -143,7 +143,7 @@ if (isset($_POST['name']) && isset($_POST['email']) && isset($_POST['subject']) 
                     <div class="carousel-item-item background3">
                         <div class="carousel-content">
                             <h4>Which Hospital will be best?</h4>
-                            <i>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut.</i>
+                            <i>Find Best Hospital in your arena.</i>
                         </div>
                     </div>
                 </div>
@@ -151,7 +151,7 @@ if (isset($_POST['name']) && isset($_POST['email']) && isset($_POST['subject']) 
                     <div class="carousel-item-item background4">
                         <div class="carousel-content">
                             <h4>Where is the Pharmacy?</h4>
-                            <i>Lorem ipsum dolor sit amet.</i>
+                            <i>Search Pharmacy and Find Order Medicine</i>
                         </div>
                     </div>
                 </div>
@@ -159,7 +159,7 @@ if (isset($_POST['name']) && isset($_POST['email']) && isset($_POST['subject']) 
                     <div class="carousel-item-item background5">
                         <div class="carousel-content">
                             <h4>Badly needed Blood for saving life?</h4>
-                            <i>Lorem ipsum dolor sit amet consectetur adipisicing elit.</i>
+                            <i>Find Blood Bank for necessary blood group at Emargency.</i>
                         </div>
                     </div>
                 </div>

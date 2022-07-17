@@ -46,14 +46,79 @@ $body .= "Please confirm the appointment through system procedure.";
 
 
 // echo $body;
-
+//Email Send;
 if (mail($to, $subject, $body, $headers)) {
     echo '<script>alert("Appoinment request has been sent successfully. Doctor will confirm you Appointment.")</script>';
 } else {
     echo '<script>alert("Failed to send Appoinment Request")</script>';
 }
 
-include('LandingPage.php');
+
+
+
+
+
+
+
+//Generating PDF
+ob_start();
+require('PDF/fpdf.php');
+
+$pdf = new FPDF();
+
+$pdf->AddPage();
+$pdf->SetFont('Arial',"B", 25);
+
+//add data now
+$pdf->Cell(190,40,"Medi_Sol", 0, 1, 'C');
+
+$pdf->Line(10, 45, 200, 45);
+$pdf->SetFont('Arial','i', 12);
+
+$pdf->Cell(50,10,"Doctor ID:", 0, 0);
+$pdf->Cell(90,10, $_SESSION['doctorid'], 0, 1);
+
+$pdf->Cell(50,10,"Doctor Name:", 0, 0);
+$pdf->Cell(90,10, $_SESSION['doctorname'], 0, 1);
+
+
+$pdf->Cell(50,10,"Patient:", 0, 0);
+$pdf->Cell(90,10, $_POST['patient_name'], 0, 1);
+
+$pdf->Cell(50,10,"Contact Number:", 0, 0);
+$pdf->Cell(90,10, $_POST['patient_contact'], 0, 1);
+
+$pdf->Cell(50,10,"Appoinment Date:", 0, 0);
+$pdf->Cell(90,10, $_POST['appointment_date'], 0, 1);
+
+$pdf->Cell(50,10,"Appoinment Time:", 0, 0);
+$pdf->Cell(90,10, $_POST['appointment_time'], 0, 1);
+
+
+$pdf->Cell(90,10, "", 0, 1);
+$pdf->Line(10, 120, 200, 120);
+
+$pdf->Cell(50,10,"Symptoms:", 0, 0);
+$pdf->Cell(90,10, $_POST['symptoms'], 0, 1);
+
+$pdf->SetFont('Arial', 'u', 12);
+$pdf->Cell(50,10, "Problem Description:", 0, 1);
+$pdf->SetFont('Arial', 'i', 12);
+$pdf->Cell(90,10, $_POST['purpose'], 0, 1);
+
+$pdf->SetFont('Arial', 'B', 10);
+$pdf->Cell(190,100, "Your Appoinment Request has been sent. Please Store this PDf For farther need.", 0, 1, 'C');
+
+
+$pdf->Output();
+ob_end_flush(); 
+
+
+
+
+
+
+// include('LandingPage.php');
 // header('Location: http://localhost/Project/LandingPage.php');
 // exit;
 
