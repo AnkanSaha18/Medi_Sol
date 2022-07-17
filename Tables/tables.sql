@@ -49,3 +49,9 @@ CREATE TABLE `medi_sol`.`articles` (
     PRIMARY KEY (`id`)
 );
 INSERT INTO articles(title, description, image_url) values ( 'new Article', 'abcd', 'IMG-62ceae0c9a6d70.87587964.jpg')
+
+CREATE TABLE charity(
+    TRANSACTION_id varchar(100),
+    amount INT,
+    PRIMARY KEY(TRANSACTION_id)
+);
