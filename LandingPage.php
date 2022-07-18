@@ -388,7 +388,16 @@ if (isset($_POST['name']) && isset($_POST['email']) && isset($_POST['subject']) 
                 <a href="#"><i class="fa-brands fa-instagram"></i></a>
             </div>
             <div class="payment">
-                <a href="Payment.php"><img src="Image/paymentSSL.png" alt="payment logo"></a>
+                <!-- <a href="Payment.php"><img src="Image/paymentSSL.png" alt="payment logo"></a> -->
+                <button onclick="openPopup()" id=""><img src="Image/paymentSSL.png" alt="payment logo"></button>
+            </div>
+            <div class="payment-pop" id="payment-pop">
+                <form action="Payment.php" method="post">
+                    <h3>Donate</h3>
+                    <input type="number" name="amount" id="" required><br>
+                    <button type="button" onclick="closePopup()">Cancel</button>
+                    <button type="submit">Proceed</button>
+                </form>
             </div>
         </div>
 
@@ -442,6 +451,22 @@ if (isset($_POST['name']) && isset($_POST['email']) && isset($_POST['subject']) 
 
 
 
+
+
+
+    <script>
+        function openPopup() {
+
+            popup = document.getElementById("payment-pop");
+            // alert(popup);
+            popup.classList.add("open-popup");
+            // alert(popup);
+        }
+
+        function closePopup() {
+            popup.classList.remove("open-popup");
+        }
+    </script>
 
 
 

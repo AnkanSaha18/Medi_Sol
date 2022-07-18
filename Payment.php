@@ -1,5 +1,9 @@
 <?php
 $amount = 100;
+if(isset($_POST['amount']))
+{
+    $amount = $_POST['amount'];
+}
 
 //SSL
 /* PHP */
@@ -9,9 +13,9 @@ $post_data['store_passwd'] = "medis62d4411ba590a@ssl";
 $post_data['total_amount'] = $amount;
 $post_data['currency'] = "BDT";
 $post_data['tran_id'] = "SSLCZ_TEST_" . uniqid();
-$post_data['success_url'] = "http://www.ankan.com/project/PaymentSuccess.php";
-$post_data['fail_url'] = "http://www.ankan.com/project/PaymentFail.php";
-$post_data['cancel_url'] = "http://www.ankan.com/project/PaymentFail.php";
+$post_data['success_url'] = "http://localhost/project/PaymentSuccess.php";
+$post_data['fail_url'] = "http://localhost/project/PaymentFail.php";
+$post_data['cancel_url'] = "http://localhost/project/PaymentFail.php";
 # $post_data['multi_card_name'] = "mastercard,visacard,amexcard";  # DISABLE TO DISPLAY ALL AVAILABLE
 
 # EMI INFO

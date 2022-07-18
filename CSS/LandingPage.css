@@ -252,6 +252,59 @@ footer {
     height: 200px;
     width: 300px;
 }
+.payment button img{
+    height: 200px;
+    width: 300px;
+}
+
+.payment-pop{
+    height: 400px;
+    width: 400px;
+    background-color: blue;
+    border-radius: 50%;
+    position: fixed;
+    top: 30%;
+    top: 100%;  /*Need to be modify when button is clicked*/
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.1);    /*Need to be modify when button is clicked*/ 
+    text-align: center;
+    padding: 0 30px 30px;
+    color: #333;
+    visibility: hidden;   /*Need to be modify when button is clicked*/
+    transition: thransform 0.4s, top 2s;
+    box-shadow: 0 40px 800px 0 rgba(0, 0, 0, 1), 0 60px 200px 0 rgba(0, 0, 0, 1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.open-popup {
+    visibility: visible;
+    top: 50%;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.payment-pop input{
+    width: 300px;
+    padding: 5px;
+    margin: 20px;
+    color: black;
+    border-radius: 20px;
+}
+.payment-pop button{
+    padding: 8px;
+    margin: 5px;
+    color: black;
+    border-radius: 30px;
+    background-color: white;
+    border: none;
+}
+
+.payment-pop input:hover, .payment-pop button:hover{
+    outline: none;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.5);
+}
+
 
 .footer-right {
     width: 50%;
